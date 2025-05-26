@@ -1,26 +1,11 @@
 describe('Google Homepage', () => {
   it('should load the homepage and verify elements', () => {
     cy.visit('https://www.google.com');
-
-    // Attempt to find and click a consent button.
-    cy.get('body').then(() => { // Corrected: Added  parameter
-      const consentButtonTexts = ['Accept all', 'I agree', 'Alle akzeptieren'];
-      let clicked = false;
-      for (const text of consentButtonTexts) {
-        // Corrected: Changed .find to .find
-        if (.find(`button:contains("${text}")`).length > 0) {
-          cy.contains('button', text).click({ force: true });
-          clicked = true;
-          break;
-        }
-      }
-      if (clicked) {
-        cy.log('Consent button clicked.');
-      } else {
-        cy.log('Consent button not found or not clicked.');
-      }
+    cy.get('body').then(<strong>($body)</strong> => { //  added
+      const consentButtonTexts = ['Accept all', 'I agree', 'Alle akzeptieren']; let clicked = false;
+      for (const text of consentButtonTexts) { if (<strong>$body.find</strong>(`button:contains("${text}")`).length > 0) { cy.contains('button', text).click({ force: true }); clicked = true; break; } }
+      if (clicked) { cy.log('Consent button clicked.'); } else { cy.log('Consent button not found or not clicked.'); }
     });
-
     cy.title().should('eq', 'Google');
     cy.get('input[name="q"]', { timeout: 10000 }).should('be.visible');
   });

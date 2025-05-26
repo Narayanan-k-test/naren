@@ -1,7 +1,7 @@
 {
   "name": "app",
   "version": "1.0.0",
-  "description": "Cypress test for Google Homepage",
+  "description": "Cypress test",
   "main": "index.js",
   "scripts": {
     "cypress:open": "cypress open",
