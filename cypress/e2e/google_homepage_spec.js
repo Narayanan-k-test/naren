@@ -3,10 +3,11 @@ describe('Google Homepage', () => {
     cy.visit('https://www.google.com');
 
     // Attempt to find and click a consent button.
-    cy.get('body').then(() => {
+    cy.get('body').then(() => { // Corrected: Added  parameter
       const consentButtonTexts = ['Accept all', 'I agree', 'Alle akzeptieren'];
       let clicked = false;
       for (const text of consentButtonTexts) {
+        // Corrected: Changed .find to .find
         if (.find(`button:contains("${text}")`).length > 0) {
           cy.contains('button', text).click({ force: true });
           clicked = true;
